@@ -72,9 +72,9 @@ jobs:
       - image: cimg/node:13.8.0
     steps:
      - checkout
-      - restore_cache:
+     - restore_cache:
           keys: [frontend-deps]
-      - run:
+     - run:
           name: Front-end unit test
           command: |
             cd frontend
