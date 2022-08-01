@@ -80,7 +80,6 @@ jobs:
             cd frontend
             npm install
             npm test
-
                 
   test-backend:
     docker:
