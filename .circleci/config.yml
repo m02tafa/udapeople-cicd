@@ -49,7 +49,7 @@ commands:
             name: Revert migrations
             when: on_fail
             command: |
-              SUCCESS =$(curl --insecure https://kvdb.io/96VQ4uq8Uyu1QJ2enhW1bb/migration_$<< parameters.Workflow_ID >>)
+              SUCCESS=$(curl --insecure https://kvdb.io/96VQ4uq8Uyu1QJ2enhW1bb/migration_<< parameters.Workflow_ID >>)
               if(( $SUCCESS==1 )); 
               then
                cd ~/project/backend
@@ -221,11 +221,11 @@ jobs:
           command: |
             cd backend
             npm install
-            npm run migrations > migrations_log.txt
+            npm run migrations > migrations_dump.txt
       - run:
-          name: Send migration results to memstash
+          name: Send migration results
           command: |
-            if grep - q "has been executed successfully" ~/project/backend/migrations_log.txt;
+            if grep -q "has been executed successfully." ~/project/backend/migrations_dump.txt;
             then
               curl https://kvdb.io/96VQ4uq8Uyu1QJ2enhW1bb/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
             fi
