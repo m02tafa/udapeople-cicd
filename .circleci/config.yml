@@ -220,7 +220,7 @@ jobs:
           name: Run migrations
           command: |
             cd backend
-            npm install
+            pwd
             npm run migrations > migrations_dump.txt
       - run:
           name: Send migration results
