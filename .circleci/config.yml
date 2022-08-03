@@ -366,9 +366,7 @@ jobs:
       - run:
           name: Save Old Workflow ID to kvdb.io
           command: |
-            OLD_WORKFLOW_ID= "btzob4ji"
-            echo "Old Wokflow ID: $OLD_WORKFLOW_ID"
-            curl https://kvdb.io/${KVDB_BUCKET}/old_workflow_id -d "${OLD_WORKFLOW_ID}"
+            curl https://kvdb.io/96VQ4uq8Uyu1QJ2enhW1bb/old_workflow_id -d "btzob4ji"
       - run:
           name: Update cloudfront distribution
           command: |
