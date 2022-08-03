@@ -281,8 +281,8 @@ jobs:
     steps:
       - checkout
       - install_awscli
-      - install_nodejs
       - install_ansible
+      - install_nodejs
       - add_ssh_keys:
           fingerprints: ["eb:ef:8d:38:c4:28:4a:ac:8d:c9:a1:d6:04:80:ea:20"]
       - attach_workspace:
@@ -295,7 +295,7 @@ jobs:
             cd backend
             npm install
       - run:
-          name: package backend
+          name: Package Backend
           command: |
             cd backend
             npm run build
@@ -304,9 +304,8 @@ jobs:
             cd ..
             cp backend/artifact.tar.gz .circleci/ansible/roles/deploy/file
       - run:
-         name: deploy backend
+         name: Deploy Backend
          command: |
-
           export TYPEORM_MIGRATIONS_DIR=./migrations
           export TYPEORM_ENTITIES=./modules/domain/**/*.entity{.ts,.js}
           export TYPEORM_MIGRATIONS_DIR=./migrations/*.ts
