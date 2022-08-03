@@ -366,7 +366,7 @@ jobs:
       - run:
           name: Save Old Workflow ID to kvdb.io
           command: |
-            curl https://kvdb.io/96VQ4uq8Uyu1QJ2enhW1bb/old_workflow_id -d "btzob4ji"
+            curl https://kvdb.io/96VQ4uq8Uyu1QJ2enhW1bb/btzob4ji -d
       - run:
           name: Update cloudfront distribution
           command: |
